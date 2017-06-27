@@ -60,8 +60,12 @@ export class ContatoDetalheComponent {
 
         }
 
-        promise.then(contato => this.location.back())
+        promise.then(contato => this.goBack())
 
     } 
+
+    goBack(): void{
+        this.location.back();
+    }
 
 }
