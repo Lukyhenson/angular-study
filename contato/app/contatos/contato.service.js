@@ -56,6 +56,11 @@ let ContatoService = class ContatoService {
         console.log('Error:', err);
         return Promise.reject(err.message || err);
     }
+    search(term) {
+        return this.http
+            .get(`${this.apiUrl}/?nome=${term}`)
+            .map((res) => res.json().data);
+    }
 };
 ContatoService = __decorate([
     core_1.Injectable(),
