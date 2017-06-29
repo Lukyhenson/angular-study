@@ -17,7 +17,7 @@ let ContatoService = class ContatoService {
         this.apiUrl = 'app/contato';
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
-    getContatos() {
+    findAll() {
         return this.http.get(this.apiUrl)
             .toPromise()
             .then(response => response.json().data)
@@ -46,8 +46,8 @@ let ContatoService = class ContatoService {
             .then(() => contato)
             .catch(this.handlerError);
     }
-    getContato(id) {
-        return this.getContatos()
+    find(id) {
+        return this.findAll()
             .then((contatos) => {
             return contatos.find((contato) => contato.id === id);
         });
